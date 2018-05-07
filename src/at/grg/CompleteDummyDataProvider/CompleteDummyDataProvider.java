@@ -11,9 +11,9 @@ import at.grg.ICompleteDataProvider.ICompleteDataProvider;
 public class CompleteDummyDataProvider implements ICompleteDataProvider {
 
     static int userId = 0; 
-    private TreeMap<String, User> tableUser; 
-    private ArrayList<Region> listRegion;
-    private ArrayList<Card> listCard;
+    private TreeMap<String, User> tableUser = new TreeMap<String, User>(); 
+    private ArrayList<Region> listRegion = new ArrayList<Region>(); 
+    private ArrayList<Card> listCard = new ArrayList<Card>(); 
     
     
     public CompleteDummyDataProvider() {
@@ -58,11 +58,11 @@ public class CompleteDummyDataProvider implements ICompleteDataProvider {
     }
 
     @Override
-    public int authenticateUser(String username, String password) {
+    public boolean authenticateUser(String username, String password) {
         if (tableUser.containsKey(username) && tableUser.get(username).getPassword().equals(password)) {
-            return tableUser.get(username).getId();
+            return true;
         }
-        return -1;
+        return false;
     }
 
     @Override

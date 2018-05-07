@@ -7,7 +7,8 @@ public interface ICompleteDataProvider {
     // User 
     public User getUserByUsername(String username) ;
     public boolean addUser(String userame, String password, int regionId);
-    public int authenticateUser(String username, String password);
+    public boolean authenticateUser(String username, String password);
+    
     
     // Region
     public boolean addRegion(int regionId, String name );

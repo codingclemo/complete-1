@@ -1,5 +1,8 @@
 package at.grg;
 
+import at.grg.CompleteDummyDataProvider.CompleteDummyDataProvider;
+import at.grg.Dialogs.LoginDialog;
+import at.grg.State.AppState;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.scene.Scene;
@@ -25,7 +28,7 @@ public class Complete extends Application {
         completeMenu.getItems().add(marketplaceItem);
         completeMenu.getItems().add(exitItem);
 
-        // close the application when exit is clicked 
+        // close the application when exit is clicked
         exitItem.setOnAction(e -> {
             Platform.exit();
             System.exit(0);
@@ -48,9 +51,18 @@ public class Complete extends Application {
 
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        // show login Dialog as modal window
+        LoginDialog loginDialog = new LoginDialog(primaryStage);
+        loginDialog.show();
     }
 
     public static void main(String[] args) {
+
+        // we use our dummy database for now ...
+        CompleteDummyDataProvider dummyDB = new CompleteDummyDataProvider();
+        AppState.getInstance().setDatabase(dummyDB);
+
         launch(args);
     }
 }
