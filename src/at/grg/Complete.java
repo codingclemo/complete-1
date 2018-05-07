@@ -55,6 +55,10 @@ public class Complete extends Application {
         // show login Dialog as modal window
         LoginDialog loginDialog = new LoginDialog(primaryStage);
         loginDialog.show();
+        
+        if (AppState.getInstance().isUserLoggedIn()) {
+            System.out.println("we have a user!  username = " + AppState.getInstance().getUser().getUsername());
+        }
     }
 
     public static void main(String[] args) {

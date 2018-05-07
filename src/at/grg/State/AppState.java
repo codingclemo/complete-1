@@ -25,6 +25,10 @@ public final class AppState {
         this.user = user;
     }
     
+    public User getUser() {
+        return this.user;
+    }
+    
     public void setDatabase (ICompleteDataProvider db) {
         this.db = db;
     }
